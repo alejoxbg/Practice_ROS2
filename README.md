@@ -64,6 +64,7 @@ ros2 run my_package my_node
 
 # Docker
 I think I can do teh next, I have to try it
+PD: I will use docker compose to this
 
 - buils a ros2 foxy image with:
     - a copy of my workspace 
