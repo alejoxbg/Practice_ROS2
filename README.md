@@ -20,9 +20,8 @@ colcon build
 . install/setup.bash
 ```
 
-# ROS2 Packages
+# ROS2 Packages python
 
-## python
 Contains:
 
 - package.xml file containing meta information about the package
@@ -43,3 +42,39 @@ ros2 pkg create --build-type ament_python <package_name>
 # in src
 ros2 run my_package my_node
 ```
+# ROS2 Packages C++
+
+Contains:
+
+- package.xml file containing meta information about the package
+
+- CMakeLists.txt file that describes how to build the code within the package
+
+
+## Creating Packages
+```
+ros2 pkg create --build-type ament_cmake <package_name>
+```
+
+## run a node
+```
+# in src
+ros2 run my_package my_node
+```
+
+# Docker
+I think I can do teh next, I have to try it
+
+- buils a ros2 foxy image with:
+    - a copy of my workspace 
+    - build that workspace
+    - source that workspace
+    - a EXCT command to run a ros2 launcher
+- The launchers might contains:
+    - a publisher/suscriber of python publish to C++ node
+    - a publisher/suscriber of C++ publish to python node
+    - a service between those nodes
+    - at least a custom msg
+    - at leas a custom service
+
+NOTE: i still don't know what to use, i think I only can use like a print scentence to do this, mabye a Hellow World linked.
