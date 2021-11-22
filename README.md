@@ -1,6 +1,8 @@
 # Practice_ROS2
 Just a practice to remember the basics about git, docker, python, c++ and ROS2
 
+This ROS2 package includes nodes in python and C++, subscriber and publisher for each one with custom msg, a ROS2 custom service in python (c++ on working) and a docker file to build a image and run the package with docker, algo i upload the docker imag to my repository if you want to test it. 
+
 
 # Installation for local build
 
