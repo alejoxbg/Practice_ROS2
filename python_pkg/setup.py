@@ -25,7 +25,7 @@ setup(
     entry_points={
         'console_scripts': [
             'python_node_pub = python_pkg.python_node_pub:main',
-            'python_node_sus = python_pkg.python_node_sus:main'
+            'python_node_sub = python_pkg.python_node_sub:main'
         ],
     },
 )
