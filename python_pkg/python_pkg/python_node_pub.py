@@ -1,13 +1,13 @@
 import rclpy
 from cpp_pkg.srv import Customsrvcpp
 from rclpy.node import Node
-from std_msgs.msg import String
+from cpp_pkg.msg import Custommsg
 
 class Py_node(Node):
     def __init__(self):
         #publisher
         super().__init__('python_publisher_service')
-        self.publisher_= self.create_publisher(String, 'py_str_msg', 10)
+        self.publisher_= self.create_publisher(Custommsg, 'py_str_msg', 10)
         timer_period= 0.5
         self.timer= self.create_timer(timer_period,self.timer_callback)
         self.i=0
@@ -24,11 +24,13 @@ class Py_node(Node):
 
     #Pubisher callback
     def timer_callback(self):
-        msg=String()
-        msg.data='Hello C++: %d' % self.i
+        msg=Custommsg()
+        msg.msg='Hello C++: '
+        msg.num=self.i
         self.publisher_.publish(msg)
-        self.get_logger().info('Publishing from python: "%s"' % msg.data)
         self.i+=1
+        self.get_logger().info('Publishing from python: "%s"' % msg.msg)
+        
 
 def main(args=None):
     rclpy.init(args=args)
