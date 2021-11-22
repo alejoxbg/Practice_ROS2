@@ -2,6 +2,61 @@
 Just a practice to remember the basics about git, docker, python, c++ and ROS2
 
 
+# Installation for local build
+
+1. Clone the project repository in your ros2 worspace
+
+```
+git clone https://github.com/alejoxbg/Practice_ROS2.git
+```
+
+2. Build your ros2 worspace 
+```
+colcon build
+source intall/setup.bash
+```
+# Run
+```
+ros2 lanuch python_pkg all_launch.launch.py
+```
+
+
+# Installation for docker
+```
+docker pull alejoxbg/test_ros2:latest
+```
+
+# Run
+```
+docker run --name test -it -rm alejoxbg/test_ros2
+
+ros2 launch python_pkg all_launch.launch.py
+```
+to open another terminal you could use:
+```
+docker exec -it test bash
+```
+
+
+# To do
+
+
+- buils a ros2 foxy image with:
+    - a copy of my workspace  ✅
+    - build that workspace ✅
+    - source that workspace ✅
+    - a EXCT command to run a ros2 launcher
+- The launchers might contains:
+    - a publisher/suscriber of python publish to C++ node ✅
+    - a publisher/suscriber of C++ publish to python node ✅
+    - a service between those nodes
+    - at least a custom msg
+    - at leas a custom service
+    - 2 containers that cominucate each other
+
+PD: I will use docker compose to this
+
+
 # ros2
 
 ## Resolve dependencies
@@ -61,21 +116,3 @@ ros2 pkg create --build-type ament_cmake <package_name>
 # in src
 ros2 run my_package my_node
 ```
-
-# Docker
-I think I can do teh next, I have to try it
-PD: I will use docker compose to this
-
-- buils a ros2 foxy image with:
-    - a copy of my workspace 
-    - build that workspace
-    - source that workspace
-    - a EXCT command to run a ros2 launcher
-- The launchers might contains:
-    - a publisher/suscriber of python publish to C++ node
-    - a publisher/suscriber of C++ publish to python node
-    - a service between those nodes
-    - at least a custom msg
-    - at leas a custom service
-
-NOTE: i still don't know what to use, i think I only can use like a print scentence to do this, mabye a Hellow World linked.

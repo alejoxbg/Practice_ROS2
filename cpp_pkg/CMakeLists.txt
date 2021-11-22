@@ -20,6 +20,7 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 
+#ADDING NODES
 add_executable(cpp_publisher src/cpp_pub.cpp)
 ament_target_dependencies(cpp_publisher rclcpp std_msgs)
 
@@ -45,9 +46,15 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
+#ADDING LAUNCH FILES
 install(DIRECTORY
   launch
   DESTINATION share/${PROJECT_NAME}/
 )
+#ADDING CUSTOM MSG AND SRV
+find_package(rosidl_default_generators REQUIRED)
 
+rosidl_generate_interfaces(${PROJECT_NAME}
+  "srv/Customsrvcpp.srv"
+)
 ament_package()
