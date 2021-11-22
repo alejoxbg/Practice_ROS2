@@ -10,5 +10,5 @@ WORKDIR /dev_ws
 
 RUN . /opt/ros/$ROS_DISTRO/setup.sh && colcon build && echo "source /dev_ws/install/setup.bash" >> /etc/bash.bashrc
 
-
+#CMD ["ros2" ,"run","python_pkg","python_node_pub"]
 #CMD ["ros2" ,"launch","test.launch.py"]

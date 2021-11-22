@@ -4,3 +4,4 @@ services:
   test_ros2:
     image: alejoxbg/test_ros2
     build: .
+    #command: ros2 run python_pkg python_node_pub
