@@ -1,3 +1,5 @@
+import os
+from glob import glob
 from setuptools import setup
 
 package_name = 'python_pkg'
@@ -10,6 +12,7 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
+        (os.path.join('share', package_name), glob('launch/*.launch.py')),
 
     ],
     install_requires=['setuptools'],
@@ -22,6 +25,7 @@ setup(
     entry_points={
         'console_scripts': [
             'python_node_pub = python_pkg.python_node_pub:main',
+            'python_node_sus = python_pkg.python_node_sus:main'
         ],
     },
 )
