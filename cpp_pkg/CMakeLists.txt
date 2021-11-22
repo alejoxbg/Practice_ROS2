@@ -17,6 +17,19 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(std_msgs REQUIRED)
+
+add_executable(cpp_publisher src/cpp_pub.cpp)
+ament_target_dependencies(cpp_publisher rclcpp std_msgs)
+
+add_executable(cpp_subscriber src/cpp_sub.cpp)
+ament_target_dependencies(cpp_subscriber rclcpp std_msgs)
+
+install(TARGETS
+  cpp_publisher
+  cpp_subscriber
+  DESTINATION lib/${PROJECT_NAME})
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
@@ -31,5 +44,10 @@ if(BUILD_TESTING)
   #set(ament_cmake_cpplint_FOUND TRUE)
   ament_lint_auto_find_test_dependencies()
 endif()
+
+install(DIRECTORY
+  launch
+  DESTINATION share/${PROJECT_NAME}/
+)
 
 ament_package()
