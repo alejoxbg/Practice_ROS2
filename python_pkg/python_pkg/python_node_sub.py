@@ -1,5 +1,5 @@
 import rclpy
-from cpp_pkg.srv import Customsrvcpp
+from custom_msg_srv.srv import Customsrvcpp
 from rclpy.node import Node
 from std_msgs.msg import String
 import time

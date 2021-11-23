@@ -1,7 +1,7 @@
 import rclpy
-from cpp_pkg.srv import Customsrvcpp
+from custom_msg_srv.srv import Customsrvcpp
 from rclpy.node import Node
-from cpp_pkg.msg import Custommsg
+from custom_msg_srv.msg import Custommsg
 
 class Py_node(Node):
     def __init__(self):

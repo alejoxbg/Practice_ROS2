@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(cpp_pkg)
+project(custom_msg_srv)
 
 # Default to C99
 if(NOT CMAKE_C_STANDARD)
@@ -17,26 +17,6 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
-find_package(rclcpp REQUIRED)
-find_package(std_msgs REQUIRED)
-find_package(custom_msg_srv REQUIRED)
-find_package(example_interfaces REQUIRED)
-
-#ADDING NODES
-add_executable(cpp_publisher src/cpp_pub.cpp)
-ament_target_dependencies(cpp_publisher rclcpp std_msgs example_interfaces)
-
-add_executable(cpp_subscriber src/cpp_sub.cpp)
-ament_target_dependencies(cpp_subscriber custom_msg_srv rclcpp example_interfaces)
-
-add_executable(client_cpp src/client_cpp.cpp)
-ament_target_dependencies(client_cpp rclcpp std_msgs example_interfaces)
-
-install(TARGETS
-  cpp_publisher
-  cpp_subscriber
-  client_cpp
-  DESTINATION lib/${PROJECT_NAME})
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
@@ -52,11 +32,11 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
-#ADDING LAUNCH FILES
-install(DIRECTORY
-  launch
-  DESTINATION share/${PROJECT_NAME}/
-)
+find_package(rosidl_default_generators REQUIRED)
 
+rosidl_generate_interfaces(${PROJECT_NAME}
+  "srv/Customsrvcpp.srv"
+  "msg/Custommsg.msg"
+)
 
 ament_package()
