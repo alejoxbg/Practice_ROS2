@@ -19,17 +19,23 @@ endif()
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
+find_package(cpp_pkg REQUIRED)
+find_package(example_interfaces REQUIRED)
 
 #ADDING NODES
 add_executable(cpp_publisher src/cpp_pub.cpp)
-ament_target_dependencies(cpp_publisher rclcpp std_msgs)
+ament_target_dependencies(cpp_publisher rclcpp std_msgs example_interfaces)
 
 add_executable(cpp_subscriber src/cpp_sub.cpp)
-ament_target_dependencies(cpp_subscriber rclcpp std_msgs)
+ament_target_dependencies(cpp_subscriber rclcpp cpp_pkg example_interfaces)
+
+add_executable(client_cpp src/client_cpp.cpp)
+ament_target_dependencies(client_cpp rclcpp std_msgs example_interfaces)
 
 install(TARGETS
   cpp_publisher
   cpp_subscriber
+  client_cpp
   DESTINATION lib/${PROJECT_NAME})
 # uncomment the following section in order to fill in
 # further dependencies manually.
