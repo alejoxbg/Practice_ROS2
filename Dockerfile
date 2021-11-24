@@ -25,5 +25,5 @@ RUN . /opt/ros/$ROS_DISTRO/setup.sh && colcon build --packages-select custom_msg
 
 ENTRYPOINT ["/init.sh"]
 
-#CMD ["ros2" ,"run","python_pkg","python_node_pub"]
+CMD ["bash"]
 #CMD ["ros2" ,"launch","test.launch.py"]

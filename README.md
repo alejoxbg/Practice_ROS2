@@ -22,7 +22,6 @@ source intall/setup.bash
 ros2 lanuch python_pkg all_launch.launch.py
 ```
 
-
 # Installation for docker
 ```
 docker pull alejoxbg/test_ros2:latest
@@ -30,13 +29,7 @@ docker pull alejoxbg/test_ros2:latest
 
 # Run
 ```
-docker run --name test -it -rm alejoxbg/test_ros2
-
-ros2 launch python_pkg all_launch.launch.py
-```
-to open another terminal you could use:
-```
-docker exec -it test bash
+docker-compose up
 ```
 
 
@@ -47,14 +40,14 @@ docker exec -it test bash
     - a copy of my workspace  ✅
     - build that workspace ✅
     - source that workspace ✅
-    - a EXCT command to run a ros2 launcher
+    - run automaticly the roslaunch ✅
 - The launchers might contains:
     - a publisher/suscriber of python publish to C++ node ✅
     - a publisher/suscriber of C++ publish to python node ✅
-    - a service between those nodes
-    - at least a custom msg
-    - at leas a custom service
-    - 2 containers that cominucate each other
+    - a service between those nodes ✅
+    - at least a custom msg ✅
+    - at leas a custom service ✅
+    - 2 containers that cominucate each other 
 
 PD: I will use docker compose to this
 

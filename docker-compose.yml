@@ -2,6 +2,11 @@ version: "3.8"
 
 services:
   test_ros2:
+    container_name: cpp_ros2
     image: alejoxbg/test_ros2
     build: .
-    command: ros2 launch python_pkg all_launch.launch.py
+
+  python_ros2:
+    container_name: py_ros2
+    image: alejoxbg/test_ros2
+    command: ros2 launch cpp_pkg test.launch.py

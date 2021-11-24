@@ -9,4 +9,5 @@
 
 . install/setup.sh
 
-ros2 launch python_pkg all_launch.launch.py
+exec "$@"
+#ros2 launch python_pkg all_launch.launch.py
